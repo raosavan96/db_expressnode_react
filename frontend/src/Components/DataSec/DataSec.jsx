@@ -35,9 +35,16 @@ function DataSec() {
             </li>
 
             {returnV.map((value) => (
-              <li>
+              <li className="mt-5">
                 <span className="me-5">{value.userName}</span>
                 <span>{value.password}</span>
+                <span>
+                  <Link to={`/update/${value._id}`}>
+                    <button className="bg-purple-600 ms-5 text-white px-3 rounded-md">
+                      Update
+                    </button>
+                  </Link>
+                </span>
               </li>
             ))}
           </ul>
