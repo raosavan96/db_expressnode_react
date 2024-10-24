@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function UpdateSec() {
   const navigete = useNavigate();
@@ -21,10 +21,10 @@ function UpdateSec() {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.message) {
           navigete("/data");
         }
+        console.log(result);
       });
   }
 
@@ -41,6 +41,12 @@ function UpdateSec() {
   return (
     <>
       <div>UpdateSec</div>
+
+      <Link to="/data">
+        <button className="bg-lime-400 px-3 mt-5 py-1 rounded-xl">
+          Data Page
+        </button>
+      </Link>
 
       <form onSubmit={handleUpdate}>
         <label className="text-green-500">Username</label>

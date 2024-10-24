@@ -29,10 +29,12 @@ exports.updateControl = async (req, res) => {
 exports.updatedNewControl = async (req, res) => {
   const upId = req.params.nid;
   const upUser = req.body.updateUser;
-  const upPass = req.body.updatePass;
+  const upPass = parseInt(req.body.updatePass);
+
   await userCollection.findByIdAndUpdate(upId, {
     userName: upUser,
     password: upPass
   });
+
   res.send({ messege: "Successfully update..." });
 };
